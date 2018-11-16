@@ -6,9 +6,15 @@ const description = {
 }
 
 const complete = {
-  default: true,
+  demand: true,
+  // default: true,
   alias: 'c',
   desc: 'completed task'
+}
+
+const task_types = {
+  alias: 't',
+  desc: 'filter for type task status'
 }
 
 // Options
@@ -21,13 +27,12 @@ const argv = require('yargs')
     complete
   })
   .command('list', 'Task List', {
-
+    task_types
   })
   .command('delete', 'Delete task', {
     description
   })
   .help().argv;
-
 
 module.exports = {
   argv
